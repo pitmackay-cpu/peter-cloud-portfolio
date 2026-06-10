@@ -108,10 +108,16 @@ SPF, DKIM, DNSSEC.
 ├── README.md
 ├── LICENSE
 ├── .gitignore
+├── linked_list.c             # Démo C : pointeurs, malloc/free, algo (École 42)
 ├── cisco_monitor.py          # Supervision SSH du Catalyst 1000 (Netmiko)
 └── backup_infrastructure.sh  # Sauvegarde NPM + AdGuard via WireGuard
 ```
 
+- **`linked_list.c`** — liste chaînée d'entiers en C : construction,
+  renversement *en place* par manipulation de pointeurs, libération
+  mémoire sans fuite. Compile avec `gcc -Wall -Wextra -Werror`.
+  Démontre les bases acquises à la Piscine de l'École 42 (pointeurs,
+  `malloc`/`free`, structures chaînées, algorithmique).
 - **`cisco_monitor.py`** — connexion SSH au Catalyst 1000 (VLAN
   management), état des interfaces, détection des ports *down*.
   Démontre : fonctions, dataclasses, gestion d'exceptions, parsing.
@@ -122,24 +128,33 @@ SPF, DKIM, DNSSEC.
 
 ---
 
-## 6. Compétences et parcours
+## 6. Compétences en programmation — preuves vérifiables
 
-**Programmation & automatisation**
-- **Python** : automatisation réseau (Netmiko), gestion d'erreurs,
-  structuration en fonctions et classes.
-- **Bash** : scripts d'exploitation robustes, cron, transferts sécurisés.
-- **C** : bases solides acquises lors de la **Piscine de l'École 42**
-  (2022) — pointeurs, gestion mémoire (`malloc`/`free`), algorithmique.
-- **Go** : agent de déploiement multiplateforme du projet STARLAB.
+Ce dépôt a été constitué pour documenter, de façon concrète et consultable,
+mes compétences en programmation (C, Python, Bash) appliquées à une
+infrastructure réelle. Chaque compétence renvoie à un élément vérifiable.
 
-**Systèmes & réseaux** (Titre Professionnel **TSSR**, niveau 5)
-- Windows Server / Active Directory, Linux (Debian/Ubuntu), virtualisation
-  (Proxmox, KVM, LXC), VLAN/OSPF, pare-feu/VPN/DMZ/PKI, PXE (FOG,
-  netboot.xyz), stratégies de sauvegarde et PRA/PCA.
+| Compétence | Preuve dans ce dépôt | Origine de la compétence |
+|---|---|---|
+| **C** — pointeurs, mémoire, algo | [`linked_list.c`](./linked_list.c) (compile `-Wall -Wextra -Werror`) | Piscine **École 42 Angoulême** (2022) |
+| **Python** — automatisation | [`cisco_monitor.py`](./cisco_monitor.py) (Netmiko, classes, exceptions) | Spécialité **NSI** au Bac + projets perso |
+| **Bash** — exploitation | [`backup_infrastructure.sh`](./backup_infrastructure.sh) (`set -euo pipefail`, logs) | Module scripts **TSSR** + home lab |
+| **Go** — projet applicatif | Projet **STARLAB** (agent multiplateforme) — voir ci-dessous | Développement personnel |
 
-**Parcours**
+> **STARLAB** est mon projet le plus complet : une plateforme de déploiement
+> logiciel auto-hébergée (agent **Go** multiplateforme, serveur/API, client
+> self-service, application iOS), en production sur `starlab.peter-cloud.com`.
+> C'est la démonstration la plus aboutie de ma logique de programmation.
+
+**Systèmes & réseaux** (Titre Professionnel **TSSR**, niveau 5) : Windows
+Server / Active Directory, Linux (Debian/Ubuntu), virtualisation (Proxmox,
+KVM, LXC), VLAN/OSPF, pare-feu/VPN/DMZ/PKI, PXE (FOG, netboot.xyz),
+sauvegardes et PRA/PCA — le tout mis en œuvre dans le home lab décrit plus haut.
+
+**Parcours & attestations**
 - Spécialité **NSI** au Baccalauréat (algorithmique, Python).
-- **Piscine École 42** (2022) — programmation C intensive.
+- **Piscine de l'École 42 Angoulême** (2022) — programmation C intensive
+  (pointeurs, gestion mémoire, algorithmique).
 - **TP TSSR** — stage au **laboratoire Pprime (ISAE-ENSMA, Poitiers)** :
   maintenance de parc, infrastructure réseau académique, support.
 - Certifications : **Cisco Networking Basics**, **ANSSI** (hygiène
