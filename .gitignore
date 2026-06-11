@@ -2,6 +2,11 @@
 __pycache__/
 *.pyc
 
+# C — fichiers générés par la compilation
+*.o
+pile_demo
+linked_list
+
 # Secrets / environnement local — ne jamais committer
 .env
 *.key

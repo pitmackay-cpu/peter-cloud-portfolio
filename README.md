@@ -108,16 +108,46 @@ SPF, DKIM, DNSSEC.
 ├── README.md
 ├── LICENSE
 ├── .gitignore
-├── linked_list.c             # Démo C : pointeurs, malloc/free, algo (École 42)
+│
+│   # — Exemples C (programme ADSILLH) —
+├── Makefile                  # Compilation séparée (.c -> .o -> exécutable)
+├── pile.h                    # Interface : type + prototypes (modularité)
+├── pile.c                    # Implémentation de la pile
+├── main.c                    # Démo : structures, contrôle, printf, fonctions
+├── linked_list.c             # Pointeurs, malloc/free, algo (École 42)
+│
+│   # — Exemples Python (programme ADSILLH) —
+├── python_fondamentaux.py    # Listes, tuples, chaînes, fonctions, exceptions
+├── algo_lineaire_vs_quadratique.py  # O(n) vs O(n²), mesure de temps
+│
+│   # — Automatisation de l'infrastructure —
 ├── cisco_monitor.py          # Supervision SSH du Catalyst 1000 (Netmiko)
 └── backup_infrastructure.sh  # Sauvegarde NPM + AdGuard via WireGuard
 ```
 
-- **`linked_list.c`** — liste chaînée d'entiers en C : construction,
-  renversement *en place* par manipulation de pointeurs, libération
-  mémoire sans fuite. Compile avec `gcc -Wall -Wextra -Werror`.
-  Démontre les bases acquises à la Piscine de l'École 42 (pointeurs,
-  `malloc`/`free`, structures chaînées, algorithmique).
+**Exemples C**
+
+- **`pile.h` / `pile.c` / `main.c` / `Makefile`** — pile (LIFO) d'entiers en
+  C, organisée en modules : l'interface (`pile.h`) est séparée de
+  l'implémentation (`pile.c`), et le `Makefile` montre la compilation
+  séparée (`.c` → `.o` → exécutable). Démontre : variables, structures de
+  contrôle, fonctions, `printf`, `struct`, modularité (`.h`/`.o`).
+- **`linked_list.c`** — liste chaînée : renversement *en place* par
+  manipulation de pointeurs, libération mémoire sans fuite. Compile avec
+  `gcc -Wall -Wextra -Werror`. Pointeurs, `malloc`/`free`, algorithmique
+  (Piscine École 42).
+
+**Exemples Python**
+
+- **`python_fondamentaux.py`** — relevé de notes : listes, tuples, chaînes
+  de caractères, fonctions, structures de contrôle, rattrapage
+  d'exceptions (`try`/`except`).
+- **`algo_lineaire_vs_quadratique.py`** — comparaison concrète d'un
+  algorithme linéaire `O(n)` (une boucle) et quadratique `O(n²)` (deux
+  boucles imbriquées), avec mesure du temps d'exécution.
+
+**Automatisation de l'infrastructure**
+
 - **`cisco_monitor.py`** — connexion SSH au Catalyst 1000 (VLAN
   management), état des interfaces, détection des ports *down*.
   Démontre : fonctions, dataclasses, gestion d'exceptions, parsing.
@@ -145,6 +175,21 @@ infrastructure réelle. Chaque compétence renvoie à un élément vérifiable.
 > logiciel auto-hébergée (agent **Go** multiplateforme, serveur/API, client
 > self-service, application iOS), en production sur `starlab.peter-cloud.com`.
 > C'est la démonstration la plus aboutie de ma logique de programmation.
+
+### Correspondance avec les prérequis du programme ADSILLH
+
+Les exemples ci-dessus couvrent directement les notions listées dans les
+prérequis de la licence :
+
+| Prérequis ADSILLH | Démontré dans |
+|---|---|
+| C — variables, `if`/`for`/`while`, fonctions, `printf`, structures | `pile.h`, `pile.c`, `main.c` |
+| C — modularité : compilation séparée `.o`, interface `.h` | `Makefile`, `pile.h` |
+| Python — variables, structures de contrôle, fonctions | `python_fondamentaux.py` |
+| Python — listes, tuples, chaînes de caractères | `python_fondamentaux.py` |
+| Python — rattrapage d'exceptions | `python_fondamentaux.py` |
+| Algorithmique — linéaire `O(n)` vs quadratique `O(n²)` | `algo_lineaire_vs_quadratique.py` |
+| Compilation vs interprétation (C compilé / Python interprété) | l'ensemble du dépôt |
 
 **Systèmes & réseaux** (Titre Professionnel **TSSR**, niveau 5) : Windows
 Server / Active Directory, Linux (Debian/Ubuntu), virtualisation (Proxmox,
