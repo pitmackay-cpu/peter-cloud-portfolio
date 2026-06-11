@@ -2,9 +2,8 @@
 #  Makefile — compilation séparée (modularité .c -> .o -> exécutable)
 #
 #  Cibles :
-#    make            compile les deux programmes (pile_demo et linked_list)
-#    make pile_demo  compile la démo de pile (pile.o + main.o)
-#    make clean      supprime les fichiers générés (.o et exécutables)
+#    make            compile le programme pile_demo
+#    make clean      supprime les fichiers générés (.o et exécutable)
 #
 #  Le drapeau -Werror traite tout avertissement comme une erreur :
 #  le code doit donc être strictement propre pour compiler.
@@ -13,9 +12,9 @@
 CC      = gcc
 CFLAGS  = -Wall -Wextra -Werror -std=c11
 
-all: pile_demo linked_list
+all: pile_demo
 
-# --- Programme modulaire : interface (pile.h) + implémentation (pile.c) ---
+# Programme modulaire : interface (pile.h) + implémentation (pile.c)
 pile_demo: pile.o main.o
 	$(CC) $(CFLAGS) -o pile_demo pile.o main.o
 
@@ -26,11 +25,7 @@ pile.o: pile.c pile.h
 main.o: main.c pile.h
 	$(CC) $(CFLAGS) -c main.c
 
-# --- Programme autonome (bonus) ---
-linked_list: linked_list.c
-	$(CC) $(CFLAGS) -o linked_list linked_list.c
-
 clean:
-	rm -f *.o pile_demo linked_list
+	rm -f *.o pile_demo
 
 .PHONY: all clean

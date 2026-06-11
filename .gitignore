@@ -5,13 +5,9 @@ __pycache__/
 # C — fichiers générés par la compilation
 *.o
 pile_demo
-linked_list
 
 # Secrets / environnement local — ne jamais committer
 .env
 *.key
 *.pem
 id_rsa*
-
-# Archives de sauvegarde
-*.tar.gz
